@@ -1,3 +1,10 @@
-adding
-::wq!
-
+pipeline
+{   agent any
+    stages
+    {   stage('continuous Download')
+        {   steps
+            { git 'https://github.com/Sanathhub/Mymaven.git'
+            }
+        }
+    }
+}
