@@ -6,5 +6,21 @@ pipeline
             { git 'https://github.com/Sanathhub/Mymaven.git'
             }
         }
+        stage('continuous building')
+        {   steps
+            { sh 'mvn package'
+            }
+        }
+        stage('contiuous deploying')
+        {   steps
+            { deploy adapters: [tomcat9(credentialsId: '5242c1fb-e4fd-448e-abe1-dc9187894af3', path: '', url: 'http://172.31.90.66:8080')], contextPath: 'devapptestapp', war: '**/*.war'
+            }
+        }
+        stage('continuous testing')
+        {   steps
+            { git 'https://github.com/intelliqittrainings/FunctionalTesting.git'
+              sh 'java -jar /home/ubuntu/.jenkins/workspace/declarativepl1/testing.jar'
+            }
+        }
     }
 }
