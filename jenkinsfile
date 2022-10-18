@@ -1,6 +1,6 @@
 node('built-in')
 {   stage('contDownload')
-    {git 'https://github.com/intelliqittrainings/maven.git'
+    {git 'https://github.com/Sanathhub/Mymaven.git'
     }
     stage('contBuild')
     {sh 'mvn package'
