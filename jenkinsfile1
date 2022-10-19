@@ -6,7 +6,14 @@ pipeline
       {  
          steps()
          {
-           git 'https://github.com/Sanathhub/Mymaven.git'
+           try
+           {
+             git 'https://github.com/Sanathhub/Mymaven.git'
+           }
+           catch(Exception e1)
+           {
+             mail bcc: '', body: 'Please verify the code as it is failed to download.', cc: '', from: '', replyTo: '', subject: 'Code Download is failed', to: 'sanathvepur@gmail.com'
+           }
          }
       }
       stage('ContBuild')
