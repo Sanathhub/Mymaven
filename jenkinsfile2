@@ -1,4 +1,4 @@
-@Library("...")_
+@Library("mysanlibrary")_
 pipeline
 {
   agent any
@@ -8,7 +8,7 @@ pipeline
     {
       steps
         {
-          
+          test3.gitpath('https://github.com/Sanathhub/Mymaven.git')
         }
     }
   }
