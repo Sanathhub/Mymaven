@@ -8,7 +8,10 @@ pipeline
     {
       steps
         {
-          test3.gitpath('https://github.com/Sanathhub/Mymaven.git')
+          script
+          {
+            test3.gitpath('https://github.com/Sanathhub/Mymaven.git')
+          }
         }
     }
   }
